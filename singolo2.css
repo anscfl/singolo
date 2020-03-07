@@ -40,7 +40,7 @@
     text-align: left;
     display: inline-block;
     margin-top: 69px;
-    margin-left: 41px;
+    margin-left: 40px;
     letter-spacing: 0.01em;
 }
 
@@ -52,13 +52,13 @@
     color: #767e9e;
     text-align: left;
     margin-top: 21px;
-    margin-left: 41px;
+    margin-left: 40px;
     margin-bottom: 22px;
 }
 
 .portfolio_nav{
     display: flex;
-    margin-left: 42px;
+    margin-left: 40px;
 }
 
 .nav-item{
@@ -79,7 +79,7 @@
 }
 
 .portfolio_grid{
-    margin-left: 42px;
+    margin-left: 40px;
     margin-top: 19px;
     display: grid;
     grid-template-columns: repeat(4, 240px);
@@ -117,13 +117,13 @@
     color: #767e9e;
     text-align: left;
     letter-spacing: -0.01em;
-    margin: 27px 0px 47px 42px;
+    margin: 27px 0px 47px 40px;
 }
 
 .contacts{
     display: grid;
     grid-template-columns: repeat(3, 300px);
-    margin-left: 42px;
+    margin-left: 40px;
     gap: 20px;
     overflow: hidden;
 }
