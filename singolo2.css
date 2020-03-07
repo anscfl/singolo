@@ -22,6 +22,7 @@
     font-family: "Lato Regular", sans-serif;
     font-weight: normal;
     margin: 0;
+    max-width: 1020px;
 }
 
 .portfolio{
