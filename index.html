@@ -11,23 +11,34 @@
     <header>
         <div class="head">
         <h1>SINGOLO<span>*</span></h1>
-        <nav>
-            <ul>
-                <li><a class="home" href="#">Home</a></li>
+            <ul id="menu">
+                <li><a href="#head">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
         </div>
     </header>
     <section class="slider">
-        <img class="arrow_left" src="assets/images/arrowleft.png">
-        <img class="arrow_right" src="assets/images/arrowright.png">
-        <img class="vertical" src="assets/images/phone_vertical.png">
-        <img class="horizontal" src="assets/images/phone_horizontal.png">
+        <div class="slide showing">
+            <img class="arrow_left" src="assets/images/arrowleft.png">
+            <img class="arrow_right" src="assets/images/arrowright.png">
+            <img class="background-1" src="assets/images/slide1.png">
+            <img class="vertical" src="assets/images/phone_vertical.png">
+            <img class="display-image-1 on" id="display-1" src="assets/images/phone-vertical-display.png">
+            <img class="horizontal" src="assets/images/phone_horizontal.png">
+            <img class="display-image-2 on" id="display-2" src="assets/images/phone-horizontal-display.png">
+            
+        </div>
+        <div class="slide">
+            <img class="arrow_left" src="assets/images/arrowleft.png">
+            <img class="arrow_right" src="assets/images/arrowright.png">
+            <img class="vertical-2" src="assets/images/phone_vertical_2.png">
+            <img class="background-2" src="assets/images/Slide-2.png">
+        </div>
     </section>
+    
     <section class="services" id="services">
         <h2>Our Services</h2>
         <p class="description">Inanga beaked sandfish pompano dolphinfish, "shrimpfish ponyfish barbeled houndshark stoneroller minnow plownose chimaera spiny dwarf catfish." Pineconefish basslet Antarctic cod jewfish. Monkfish pearleye is herring flathead.</p>
@@ -80,7 +91,7 @@
         <h1>Portfolio</h1>
         <p>Catfish snake mackerel, john dory monkeyface prickleback bullhead shark.</p>
         <div class="portfolio_nav">
-            <button class="nav-item active" href="#All">All</button></>
+            <button class="nav-item active" href="#All">All</button>
             <button class="nav-item" href="#WD">Web Design</button>
             <button class="nav-item" href="#GD">Graphic Design</button>
             <button class="nav-item" href="#Artwork">Artwork</button>
@@ -178,5 +189,6 @@
             <a><img src="assets/images/linkedin.png"></a>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
