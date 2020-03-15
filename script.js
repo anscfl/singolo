@@ -1,74 +1,114 @@
 const navMenu = document.getElementById('menu');
+const leftScreen = document.getElementById('screen-left');
+const rightScreen = document.getElementById('screen-right');
+const portfolioNav = document.getElementById('portfolio_nav');
+const portfolioImages = document.getElementById('portfolio_grid');
+const submit = document.getElementById('submit');
+const message = document.getElementById('message');
+const closeButton = document.getElementById('close-button');
+
+
+//header navigation
 
 navMenu.addEventListener('click', (event) =>{
     navMenu.querySelectorAll('a').forEach(el => el.classList.remove('active-nav'));
     event.target.classList.add('active-nav');    
 });
 
-const displayOne = document.getElementById('display-1');
+//portfolio filter
 
-displayOne.addEventListener('click', (event) =>{
-    if(event.target.classList.contains('on')){
-        event.target.classList.remove('on');
-        event.target.classList.add('off');
-    }
-    else{
-        event.target.classList.remove('off');
-        event.target.classList.add('on');
-    }
-})
+function shiftPortfolio() {
+    let first = portfolioImages.firstElementChild;
+    let last = portfolioImages.lastElementChild;
+    last.after(first);
+}
 
-const displayTwo = document.getElementById('display-2');
-
-displayTwo.addEventListener('click', (event) => {
-    if(event.target.classList.contains('on')){
-        event.target.classList.remove('on');
-        event.target.classList.add('off');
-    }
-    else{
-        event.target.classList.remove('off');
-        event.target.classList.add('on');
+portfolioNav.addEventListener('click', (event) => {
+    if(event.target.tagName === 'BUTTON'){
+        portfolioNav.querySelectorAll('button').forEach(el => el.classList.remove('active'));
+        event.target.classList.add('active');
+        shiftPortfolio();
     }
 })
 
-const nextArrow = document.querySelector('.arrow_right');
-const leftArrow = document.querySelector('.arrow_left');
-const slider = document.getElementsByClassName("slider");
-
-nextArrow.addEventListener('click', (event) => {
-    plusSlides(1);
-    if (slider[0].classList[1] == "showing") {
-        slider[0].classList.remove('showing');
+portfolioImages.addEventListener('click', (event) => {
+    const div = event.target.parentNode;
+    if(event.target.tagName === 'IMG'){
+        portfolioImages.querySelectorAll('div').forEach(el => el.classList.remove('active-img'));
+        div.classList.add('active-img');
     }
-    else { slider[0].classList.add('showing'); }
 })
 
-leftArrow.addEventListener('click', (event) => {
-    plusSlides(-1);
-    if (slider[0].classList[1] == "showing") {
-        slider[0].classList.remove('showing');
+//display fading
+
+leftScreen.addEventListener('click', () => event.target.style.opacity = event.target.style.opacity == 0 ? 1 : 0);
+rightScreen.addEventListener('click', () => event.target.style.opacity = event.target.style.opacity == 0 ? 1 : 0);
+
+//form message
+
+submit.addEventListener('click', (event) => {
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    if (name.validity.valid && email.validity.valid) {
+        event.preventDefault();
+        message.classList.remove('hidden');
+        document.getElementById('message-subject').innerText = subject.value ? 'Тема: ' + subject.value : 'Без темы';
+        document.getElementById('message-descr').innerText = description.value ? 'Описание: ' + description.value : 'Без описания';
     }
-    else { slider[0].classList.add('showing'); }
+})
+
+closeButton.addEventListener('click', () => {
+    message.classList.add('hidden');
+    document.getElementById('form').reset();
 });
 
-var slideIndex = 1;
-showSlides(slideIndex);
+//change slide
 
-function plusSlides(n) {
-    showSlides(slideIndex += n);
+let slides = document.querySelectorAll('.slider .slide');
+let currentSlide = 0;
+let isEnabled = true;
+
+function changeCurrentSlide(n) {
+    currentSlide = (n + slides.length) % slides.length;
 }
 
-function currentSlide(n) {
-    showSlides(slideIndex = n);
+function hideSlide(direction) {
+    isEnabled = false;
+    slides[currentSlide].classList.add(direction);
+    slides[currentSlide].addEventListener('animationend', function() {
+        this.classList.remove('showing', direction);
+    });
 }
 
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("slider");
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+function showSlide(direction) {
+    slides[currentSlide].classList.add('next', direction);
+    slides[currentSlide].addEventListener('animationend', function() {
+        this.classList.remove('next', direction);
+        this.classList.add('showing');
+        isEnabled = true;
+    });
+}
+
+function nextSlide(n) {
+    hideSlide('to-left');
+    changeCurrentSlide(n + 1);
+    showSlide('from-right');
+}
+
+function previousSlide(n) {
+    hideSlide('to-right');
+    changeCurrentSlide(n - 1);
+    showSlide('from-left');
+}
+
+document.querySelector('.control.next-button').addEventListener('click', function() {
+    if (isEnabled) {
+        previousSlide(currentSlide);
     }
-    slides[slideIndex - 1].style.display = "block";
-}
+});
+
+document.querySelector('.control.prev-button').addEventListener('click', function() {
+    if (isEnabled) {
+        nextSlide(currentSlide);
+    }
+});
