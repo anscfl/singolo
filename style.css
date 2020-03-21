@@ -23,11 +23,15 @@
     font-weight: normal;
     margin: 0;
     max-width: 1020px;
+    scroll-behavior: smooth;
 }
 
 header{
+    position: fixed;
+    z-index: 10;
     padding: 0 40px;
     height: 89px;
+    width: 940px;
     background-color: #2d303a;
     border-bottom: 6px solid #323746;
 }
@@ -84,7 +88,8 @@ body{
 }
 
 .slider {
-    height: 600px;
+    padding-top: 94px;
+    height: 690px;
     overflow: hidden;
     box-sizing: border-box;
     position: relative;

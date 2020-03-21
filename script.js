@@ -7,13 +7,31 @@ const submit = document.getElementById('submit');
 const message = document.getElementById('message');
 const closeButton = document.getElementById('close-button');
 
-
 //header navigation
 
-navMenu.addEventListener('click', (event) =>{
+/*navMenu.addEventListener('click', (event) =>{
     navMenu.querySelectorAll('a').forEach(el => el.classList.remove('active-nav'));
     event.target.classList.add('active-nav');    
-});
+});*/
+
+document.addEventListener('scroll', onScroll);
+
+function onScroll(event){
+    const curPos = window.scrollY;
+    const shift = document.querySelectorAll('section');
+    const links = document.querySelectorAll('#menu a');
+
+    shift.forEach((el) => {
+        if (el.offsetTop <= curPos && (el.offsetTop + el.offsetHeight) > curPos){
+            links.forEach((a) => {
+                a.classList.remove('active-nav');
+                if(el.getAttribute('id') === a.getAttribute('href').substring(1)){
+                    a.classList.add('active-nav');
+                }
+            })
+        }
+    })
+}
 
 //portfolio filter
 
