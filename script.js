@@ -1,4 +1,5 @@
 const navMenu = document.getElementById('menu');
+const burgerButton = document.getElementById('burger-button');
 const leftScreen = document.getElementById('screen-left');
 const rightScreen = document.getElementById('screen-right');
 const portfolioNav = document.getElementById('portfolio_nav');
@@ -8,11 +9,6 @@ const message = document.getElementById('message');
 const closeButton = document.getElementById('close-button');
 
 //header navigation
-
-/*navMenu.addEventListener('click', (event) =>{
-    navMenu.querySelectorAll('a').forEach(el => el.classList.remove('active-nav'));
-    event.target.classList.add('active-nav');    
-});*/
 
 document.addEventListener('scroll', onScroll);
 
@@ -32,6 +28,18 @@ function onScroll(event){
         }
     })
 }
+
+burgerButton.addEventListener('click', () => {
+    document.querySelector('.burger').classList.toggle('active-burger');
+    document.getElementById('menu').classList.remove('hidden');
+    document.querySelector('.blur').classList.toggle('hidden');
+})
+
+navMenu.addEventListener('click', () => {
+    document.querySelector('.burger').classList.toggle('active-burger');
+    document.getElementById('menu').classList.remove('hidden');
+    document.querySelector('.blur').classList.toggle('hidden');
+})
 
 //portfolio filter
 

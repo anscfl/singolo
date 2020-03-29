@@ -10,29 +10,34 @@
 <body>
     <header>
         <div class="head">
-        <h1>SINGOLO<span>*</span></h1>
-            <ul id="menu">
+            <div class="blur hidden"></div>
+            <nav class="burger">
+                <img class="burger-menu" id="burger-button" src="assets/images/Burger-menu-icon.png">
+                <h1>SINGOLO<span>*</span></h1>
+                <ul id="menu">
                 <li><a href="#home" class="active-nav">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-            </ul>
+                </ul>
+            </nav>
         </div>
     </header>
     <section class="slider" id="home">
         <div class="slides-container">
             <div class="slide showing">
-                <img src="assets\images\slide1.png" alt="Slide 1">
+                <img class="slide-image" src="assets\images\slide1.png" alt="Slide 1">
                 <img id="screen-left" class="screen left" src="assets\images\screen_black.png" alt="Phone">
                 <img id="screen-right" class="screen right" src="assets\images\screen_black.png" alt="Phone">
             </div>
             <div class="slide">
-                <img src="assets\images\slide2.png" alt="Slide 2">
+                <img class="slide-image" src="assets\images\slide2.png" alt="Slide 2">
             </div>
+            <button class="control prev-button"><img class="arrow-img" src="assets\images\arrowleft.png" alt="Previous"></button>
+        <button class="control next-button"><img class="arrow-img" src="assets\images\arrowright.png" alt="Next"></button>
         </div>
-        <button class="control prev-button"><img src="assets\images\arrowleft.png" alt="Previous"></button>
-        <button class="control next-button"><img src="assets\images\arrowright.png" alt="Next"></button>
+        
     </section>
     <section class="services" id="services">
         <h2>Our Services</h2>
@@ -147,7 +152,7 @@
             <h1>Get a Quote</h1>
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
         </div>
-        <div class="q-form">
+        <div class="feedback">
             <form id="form" action="" class="form" method="post">
                 <input type="text" required id="name" name="name" placeholder="Name (Required)"><br>
                 <input type="email" required id="email" name="email" placeholder="Email (Required)"><br>
@@ -155,7 +160,6 @@
                 <textarea name="description" id="description" placeholder="Describe your project in detail..."></textarea>
                 <button type="submit" id="submit" value="Submit">Submit</button>
             </form>
-        </div>
         <div class="contact-info">
             <h2>Contact Information</h2>
             <p>Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis.</p>
@@ -170,6 +174,7 @@
                 <div class="contact-item">
                     <img src="assets/images/mail.png">
                     <p><a href="mail">info@singolo.com</a></p>
+                    </div>
                 </div>
         </div>
         <div class="message hidden" id="message">
